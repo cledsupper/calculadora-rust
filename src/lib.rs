@@ -118,10 +118,6 @@ impl Calculadora {
                 }
                 else {
                     if estado.op != Operador::Iniciar { estado.sobe(); }
-                    else {
-                        estado.op = op;
-                        return;
-                    }
                     if op == Operador::Multiplicacao {
                         estado.memoriza();
                         estado.salva(1.0);
@@ -140,6 +136,7 @@ impl Calculadora {
     fn calcula(&mut self, estado: &mut Estado, val: f32) {
         match estado.op {
             Operador::Iniciar => {
+                estado.memoriza();
                 estado.salva(val);
             }
             Operador::Soma => {

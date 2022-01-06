@@ -111,6 +111,7 @@ impl Estado {
     pub fn desce(&mut self) {
         if self.op1 == Operador::Iniciar {
           self.n.1 = 0.0;
+          self.op = self.op1;
           return
         }
 
